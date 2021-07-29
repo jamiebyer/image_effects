@@ -1,9 +1,27 @@
-
 extern crate image;
+extern crate fltk;
 
 use image::{GenericImage, GenericImageView};
+use fltk::{app::*, button::*, frame::*, window::*, prelude::*};
+
 
 fn main() {
+    let app = App::default();
+    let mut wind = Window::new(100, 100, 400, 300, "Hello, FLTK!");
+    let mut frame = Frame::new(0, 0, 400, 200, "Boring label");
+    let mut but = Button::new(160, 210, 80, 40, "Click me!");
+
+    wind.end();
+    wind.show();
+
+    // Remember: Callbacks after initializing the interface
+    but.set_callback(move |_| frame.set_label("Hello, world!"));
+
+    app.run().unwrap();
+}
+
+/*
+fn clear_solid_background() {
     let mut img = image::open("/home/jbyer/shared/images/image1.png").unwrap();
     let corner_pixel = img.get_pixel(0, 0);
     let (width, height) = img.dimensions();
@@ -39,6 +57,7 @@ fn main() {
 
      //out.save("./images/image1_processed.png").unwrap();
 }
+*/
 
 /*
 fn blur_section() {
