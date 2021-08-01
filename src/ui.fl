@@ -1,0 +1,41 @@
+# data file for the Fltk User Interface Designer (fluid)
+version 1.0305
+header_name {.h}
+code_name {.cxx}
+class UserInterface {open
+} {
+  Function {make_window()} {open
+  } {
+    Fl_Window {} {open selected
+      xywh {492 158 615 440} type Double align 17 visible
+    } {
+      Fl_Button but {
+        label Run
+        xywh {30 210 160 60} color 95
+      }
+      Fl_Box frame {
+        xywh {30 301 550 48} align 20
+      }
+      Fl_Box {} {
+        label {Select Input Image:}
+        xywh {25 82 155 28} align 20
+      }
+      Fl_Box {} {
+        label {Image Background Remover}
+        xywh {105 18 395 37} box EMBOSSED_FRAME color 32 align 16
+      }
+      Fl_Box {} {
+        label {Select Process:}
+        xywh {305 83 125 27} align 20
+      }
+      Fl_Round_Button image1 {
+        label image1
+        xywh {30 110 90 25} down_box ROUND_DOWN_BOX
+      }
+      Fl_Round_Button image2 {
+        label image2
+        xywh {30 135 95 20} down_box ROUND_DOWN_BOX
+      }
+    }
+  }
+}
