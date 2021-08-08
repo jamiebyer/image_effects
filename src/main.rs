@@ -1,24 +1,49 @@
-extern crate image;
-extern crate fltk;
+/*
+Fluid tutorial: https://www.youtube.com/watch?v=k_P0wG3-dNk
+*/
+//extern crate image;
+//extern crate fltk;
 
-use image::{GenericImage, GenericImageView};
-use fltk::{app::*, button::*, frame::*, window::*, prelude::*};
+//use image::{GenericImage, GenericImageView};
+//use fltk::{app::*, button::*, frame::*, window::*, prelude::*, choice::*};
 
+
+// src/main.rs
+use fltk::{prelude::*, *};
+mod ui;
 
 fn main() {
+    let app = app::App::default();
+    let mut ui = ui::UserInterface::make_window();
+    //let mut inp_image = ui.inp_image.clone();
+    //let mut inp_process = ui.inp_process.clone();
+    let mut image1 = ui.image1.clone();
+    let mut frame = ui.frame.clone();
+
+    ui.but.set_callback(move |_| {
+        let txt = format!("Image: {:?}", image1.value());
+        frame.set_label(&txt);
+    });
+    app.run().unwrap();
+}
+
+/*
+fn main() {
+    
     let app = App::default();
-    let mut wind = Window::new(100, 100, 400, 300, "Hello, FLTK!");
+    let mut wind = Window::new(100, 100, 400, 300, "Image Effects");
     let mut frame = Frame::new(0, 0, 400, 200, "Boring label");
-    let mut but = Button::new(160, 210, 80, 40, "Click me!");
+    //let mut but = Button::new(160, 210, 80, 40, "Click me!");
+    let mut menu = Choice::new(160, 210, 80, 40, "Click me!");
 
     wind.end();
     wind.show();
 
     // Remember: Callbacks after initializing the interface
-    but.set_callback(move |_| frame.set_label("Hello, world!"));
+    // but.set_callback(move |_| frame.set_label("Hello, world!"));
 
     app.run().unwrap();
-}
+}*/
 
 /*
 fn clear_solid_background() {
